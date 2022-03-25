@@ -1,0 +1,3 @@
+**/*.json
+**/*.txt
+public/javascript/*.js

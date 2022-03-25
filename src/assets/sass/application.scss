@@ -1,0 +1,7 @@
+$govuk-assets-path: '/public/assets/';
+
+@import '../../../node_modules/govuk-frontend/govuk/all';
+
+@import 'common';
+@import 'dashboard';
+@import 'navigation';

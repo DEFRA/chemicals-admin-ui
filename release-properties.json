@@ -1,0 +1,9 @@
+{
+  "mavenComponents": [],
+  "npmComponents": ["./"],
+  "pomLocationDirectory": "./",
+  "additionalFilesToGitAdd": [
+    "package.json",
+    "package-lock.json"
+  ]
+}

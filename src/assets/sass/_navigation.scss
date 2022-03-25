@@ -1,0 +1,27 @@
+@import '../../../node_modules/govuk-frontend/govuk/helpers/colour';
+
+.admin-support-ui-navigation-wrapper {
+  background-color: govuk-colour("light-grey");
+  overflow: hidden; // There is probably a better way to make the parent not lose all of it's height due to the float
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: right;
+  }
+
+  .admin-support-ui-navigation-options {
+    display: block;
+    float: right;
+    text-align: right;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+}

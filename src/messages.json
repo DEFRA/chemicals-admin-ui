@@ -1,0 +1,210 @@
+{
+  "general": {
+    "labels": {
+      "header": {
+        "serviceName": "UK REACH Settings"
+      },
+      "navigation": {
+        "signOut": "Sign out"
+      },
+      "errorBanner": "There is a problem"
+    },
+    "header": {
+      "serviceName": "UK REACH Settings",
+      "govuk": {
+        "header": "GOV.UK",
+        "url": "https://www.gov.uk"
+      },
+      "menuBar": {
+        "admin": "ADMIN",
+        "signOut": "Sign out"
+      }
+    },
+    "footer": {
+      "govuk": {
+        "copyright": "© Crown copyright",
+        "license": {
+          "allContent": "All content is available under the",
+          "nationalArchivesUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "openGovernmentLicense": "Open Government Licence v3.0",
+          "exception": ", except where otherwise stated"
+        }
+      }
+    }
+  },
+  "homepage": {
+    "title": "Homepage",
+    "labels": {
+      "featureToggles": {
+        "heading": "Feature toggles",
+        "table": {
+          "caption": "Feature toggles",
+          "heading": {
+            "feature": "Feature",
+            "condition": "Conditions"
+          },
+          "body": {
+            "showBefore": "Show before",
+          "showAfter": "Show after"
+          }
+        }
+      },
+      "homepageBanner": {
+        "heading": "Homepage banner",
+        "currentlyLive": "Currently live",
+        "scheduled": "Scheduled",
+        "scheduledFor": "Scheduled for",
+        "createAScheduledBanner": "Create a scheduled banner",
+        "noScheduledBanners": "There are no banners scheduled."
+      }
+    }
+  },
+  "logoutView": {
+    "labels": {
+      "pageTitle": "Sign out",
+      "heading": "You are signed out"
+    }
+  },
+  "systemErrorView": {
+    "labels": {
+      "pageTitle": "Sorry, there is a problem with the service. Try again later",
+      "heading": "Sorry, there is a problem with the service. Try again later.",
+      "content": "If the problem continues, call the UK Chemicals Helpline and quote the following error code:"
+    }
+  },
+  "serviceHelpline": {
+    "labels": {
+      "contactHelpLine": "If the web address is correct or you selected a link or button, contact the UK Chemicals Helpline.",
+      "helpline": "UK Chemicals Helpline",
+      "helplineSubHeading": "Have the error code with you when you call the helpline.",
+      "helplineTelephone": "Telephone: 0330 159 1985",
+      "helplineAvailability": "Monday to Friday, 8.30am to 5pm (except public holidays)"
+    }
+  },
+  "pageNotFoundView": {
+    "labels": {
+      "pageTitle": "Page not found",
+      "heading": "Page not found",
+      "checkTypedCorrectly": "If you typed the web address, check it is correct.",
+      "checkCopiedCorrectly": "If you pasted the web address, check you copied the entire address."
+    }
+  },
+  "settings": {
+    "featureToggles": {
+      "title": "Edit feature toggle",
+      "labels": {
+        "caption": "Feature toggle",
+        "description": "Description",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "dateExample": "For example 30 9 2021",
+        "day": "Day",
+        "month": "Month",
+        "year": "Year",
+        "error": "Error",
+        "status": {
+          "legend": "Status",
+          "on": "On",
+          "off": "Off"
+        },
+        "errors": {
+          "MISSING_DATE": "Enter a feature toggle date",
+          "INVALID_DATE": "Feature toggle date must be a real date",
+          "DATE_IN_PAST": "Feature toggle date must be today or in the future",
+          "SUMMARY": "Enter a valid feature toggle date",
+          "selectAnOption": "Select one of the options below"
+        },
+        "save": "Save"
+      }
+    },
+    "featureTogglesSuccess": {
+      "title": "Feature toggle",
+      "titleEnd": "updated",
+      "labels": {
+        "caption": "Feature Toggle Saved",
+        "featureCalled": "Feature called",
+        "hasBeenUpdated": "has been updated",
+        "goTo": "Go to",
+        "settings": "settings"
+      }
+    }
+  },
+  "banner": {
+    "common": {
+      "error": "Error",
+      "caption": "Homepage banner"
+    },
+    "createBanner": {
+      "title": "Create banner",
+      "heading": "Create a scheduled banner",
+      "startDate": "Start date",
+      "startDateExample": "for example 30 9 2021",
+      "content": "Content",
+      "contentHint": "Content hint",
+      "confirm": "Confirm",
+      "day": "Day",
+      "month": "Month",
+      "year": "Year",
+      "hint": "Please provide valid JSON - If valid JSON is not provided it will fail the update. All updates are currently set to be automatically approved."
+    },
+    "currentlyLive": {
+      "title": "Edit currently live",
+      "heading": "Currently live",
+      "bannerLastUpdated": "Last updated",
+      "content": "Content",
+      "save": "Save",
+      "hint": "Please provide valid JSON - If valid JSON is not provided it will fail the update. All updates are currently set to be automatically approved."
+    },
+    "scheduledBanner": {
+      "title": "Scheduled banner",
+      "heading": "Scheduled for",
+      "at": "at",
+      "startDate": "Start date",
+      "content": "Content",
+      "deleteAndUnscheduleBanner": "Delete and unschedule banner",
+      "hint": "Please provide valid JSON - If valid JSON is not provided it will fail the update. All updates are currently set to be automatically approved."
+    },
+    "deletedBanner": {
+      "title": "Deleted banner",
+      "scheduledFor": "Scheduled for",
+      "hasBeenDeleted": "has been deleted",
+      "homepageBannerHasBeenDeleted": "homepage banner has been deleted and is no longer scheduled to go live.",
+      "goTo": "Go to",
+      "settings": "settings"
+    },
+    "success": {
+      "caption": "Customisation",
+      "title": "Banner edited",
+      "heading": "Homepage banner",
+      "hasBeenUpdated": "Homepage banner has been updated",
+      "goTo": "Go to",
+      "bannerCustomisation": "banner customisation"
+    },
+    "bannerSaved": {
+      "title": "Banner saved",
+      "currentlyLive": "Currently live",
+      "saved": "saved",
+      "hasBeenSaved": "homepage banner has been saved.",
+      "goTo": "Go to",
+      "settings": "settings"
+    },
+    "bannerCreated": {
+      "title": "Banner created",
+      "scheduledFor": "Scheduled for",
+      "created": "created",
+      "hasBeenCreated": "has been created and will go live on",
+      "goTo": "Go to",
+      "settings": "settings"
+    },
+    "errors": {
+      "enterBannerContent": "Enter banner content",
+      "unableToParse": "'Unable to parse JSON. Please check JSON structure'",
+      "ensureCorrectFormat": "Please ensure that the content is in the correct format",
+      "unexpectedError": "'An unexpected error occurred. Please try again.'",
+      "MISSING_DATE": "Enter a banner start date",
+      "INVALID_DATE": "Banner start date must be a real date",
+      "DATE_NOT_IN_FUTURE": "Banner start date must be in the future",
+      "SUMMARY": "Enter a valid banner start date"
+    }
+  }
+}

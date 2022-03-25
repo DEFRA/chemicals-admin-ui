@@ -1,0 +1,4 @@
+// I'll be very sad if we ever put any code in here outside of `$govuk-assets-path` and `@import`
+$govuk-assets-path: '/public/assets/';
+
+@import '../../../node_modules/govuk-frontend/govuk/all-ie8';

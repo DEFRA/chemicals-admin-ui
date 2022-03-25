@@ -1,0 +1,14 @@
+# Exclude Intellij IDEA metadata
+**/.idea/
+
+# Exclude MacOS X metadata
+**/.DS_STORE
+
+# Exclude NPM working data
+**/node_modules
+
+# Exclude Compiled Assets
+**/public
+
+# Exclude nyc output
+**/.nyc_output

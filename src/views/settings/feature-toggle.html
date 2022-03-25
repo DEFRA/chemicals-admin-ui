@@ -1,0 +1,44 @@
+<span class="govuk-caption-xl">{{labels.caption}}</span>
+<h1 class="govuk-heading-xl overflow-wrap">{{featureToggle.name}}</h1>
+
+<form method="POST" action="/feature-toggle/{{featureToggle.id}}">
+    <div class="govuk-form-group">
+        <div class="govuk-body govuk-!-margin-bottom-0">
+            <label id="description-label" class="govuk-label"
+                   for="feature-toggle-description">{{labels.description}}</label>
+        </div>
+        <textarea class="govuk-textarea" id="feature-toggle-description" name="featureToggleDescription" rows="5">{{featureToggle.description}}</textarea>
+    </div>
+    {{#ifEquals strategy 'FROM_DATE'}}
+        {{> feature-toggle/date-field dateTitle=labels.startDate }}
+    {{/ifEquals}}
+    {{#ifEquals strategy 'BEFORE_DATE'}}
+        {{> feature-toggle/date-field dateTitle=labels.endDate }}
+    {{/ifEquals}}
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">{{labels.status.legend}}</h1>
+            </legend>
+            <div id="feature-toggle-status" class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="feature-toggle-on" name="featureToggleStatus" type="radio"
+                           value="true" {{#if featureToggle.enabled}}checked{{/if}}>
+                    <label class="govuk-label govuk-radios__label" for="feature-toggle-on">{{labels.status.on}}</label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="feature-toggle-off" name="featureToggleStatus" type="radio"
+                           value="false" {{#ifEquals featureToggle.enabled false}}checked{{/ifEquals}}>
+                    <label class="govuk-label govuk-radios__label"
+                           for="feature-toggle-off">{{labels.status.off}}</label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="govuk-form-group">
+        {{{csrf crumb}}}
+        <button class="govuk-button" data-module="govuk-button">
+            {{labels.save}}
+        </button>
+    </div>
+</form>

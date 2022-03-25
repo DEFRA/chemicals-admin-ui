@@ -1,0 +1,23 @@
+.table-cell-no-border-top {
+  border-bottom: 0;
+}
+
+.table-cell-no-padding-top {
+  padding-top: 0;
+}
+
+.status {
+  background-color: govuk-colour('dark-grey');
+  color: govuk-colour('white');
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 10px;
+
+  &.#{'ON'} {
+    background-color: govuk-colour('green');
+  }
+
+  &.#{'OFF'} {
+    background-color: govuk-colour('red');
+  }
+}

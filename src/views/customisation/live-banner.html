@@ -1,0 +1,40 @@
+<span class="govuk-caption-xl">{{labels.caption}}</span>
+<h1 class="govuk-heading-xl">{{labels.heading}}</h1>
+
+{{#isErrors errors}}
+<div class="govuk-error-summary" role="alert" aria-labelledby="error-summary-heading">
+    <h2 class="govuk-heading-m govuk-error-summary__title" id="error-summary-heading">
+        {{labels.errorBanner}}
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            {{#errors}}
+            <li><a href="#{{field}}" class="govuk-link">{{description}}</a></li>
+            {{/errors}}
+        </ul>
+    </div>
+</div>
+{{/isErrors}}
+
+<dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">{{labels.bannerLastUpdated}}</dt>
+        <dd class="govuk-summary-list__value">{{formattedBriefDateWithTimeWithTimezone banner.createdAt}}</dd>
+        <dd class="govuk-summary-list__actions"></dd>
+    </div>
+</dl>
+
+<form method="POST" action="/banner/live">
+    <div class="govuk-form-group{{#isErrors errors}} govuk-form-group--error{{/isErrors}}">
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="banner-content">{{labels.content}}</label>
+        </h1>
+        <div id="more-detail-hint" class="govuk-hint">{{labels.hint}}</div>
+        <textarea class="govuk-textarea" id="banner-content" name="bannerContent" rows="20" aria-describedby="more-detail-hint">{{bannerContentComponents}}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+        {{{csrf crumb}}}
+        <button class="govuk-button" data-module="govuk-button">{{labels.save}}</button>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+<span class="govuk-caption-xl">{{labels.caption}}</span>
+<h1 class="govuk-heading-xl">{{labels.heading}} {{formattedBriefDateWithTimeWithTimezone banner.validFrom}}</h1>
+
+{{#isErrors errors}}
+<div class="govuk-error-summary" role="alert" aria-labelledby="error-summary-heading">
+    <h2 class="govuk-heading-m govuk-error-summary__title" id="error-summary-heading">
+        {{labels.errorBanner}}
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            {{#errors}}
+            <li><a href="#{{field}}" class="govuk-link">{{description}}</a></li>
+            {{/errors}}
+        </ul>
+    </div>
+</div>
+{{/isErrors}}
+
+<form method="POST" action="/banner/{{banner.configurableContentId}}/delete">
+    <div class="govuk-form-group{{#isErrors errors}} govuk-form-group--error{{/isErrors}}">
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="banner-content">{{labels.content}}</label>
+        </h1>
+        <div id="more-detail-hint" class="govuk-hint">{{labels.hint}}</div>
+        <textarea class="govuk-textarea" id="banner-content" name="bannerContent" rows="20" aria-describedby="more-detail-hint">{{bannerContentComponents}}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+        {{{csrf crumb}}}
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">{{labels.deleteAndUnscheduleBanner}}</button>
+    </div>
+</form>

@@ -1,0 +1,9 @@
+@import '../../../node_modules/govuk-frontend/govuk/objects/width-container';
+
+.app-width-container--wide {
+  @include govuk-width-container(1100px);
+}
+
+.overflow-wrap {
+  overflow-wrap: break-word;
+}

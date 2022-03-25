@@ -1,0 +1,47 @@
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">{{dateTitle}}</h1>
+    </legend>
+    <span class="govuk-hint" id="date-hint">{{labels.dateExample}}</span>
+    <div class="govuk-form-group{{#isError errors 'startDate'}} govuk-form-group--error{{/isError}}">
+      <div class="govuk-form-group{{#ifErrorsArrayContains errors 'day-entry' 'month-entry' 'year-entry' 'date-input'}} govuk-form-group--error{{/ifErrorsArrayContains}}" id="date-input">
+        {{#ifErrorsArrayContains errors 'day-entry' 'month-entry' 'year-entry' 'date-input'}}
+        <span id="error-message" class="govuk-error-message">
+                    {{#getErrorDetailedDescription ../errors this.field}}{{/getErrorDetailedDescription}}
+                     </span>
+        {{/ifErrorsArrayContains}}
+        <div class="govuk-date-input" id="generate-token-form-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="day-entry">
+                {{labels.day}}
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#isError errors 'day-entry'}} govuk-input--error{{/isError}}"
+                     id="day-entry" name="day" type="text" pattern="[0-9]{1,2}" value="{{day}}" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="month-entry">
+                {{labels.month}}
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#isError errors 'month-entry'}} govuk-input--error{{/isError}}"
+                     id="month-entry" name="month" type="text" pattern="[0-9]{1,2}"
+                     value="{{month}}" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="year-entry">
+                {{labels.year}}
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4{{#isError errors 'year-entry'}} govuk-input--error{{/isError}}"
+                     id="year-entry" name="year" type="text" pattern="[0-9]{4}" value="{{year}}" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

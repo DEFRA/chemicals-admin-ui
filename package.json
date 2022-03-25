@@ -1,0 +1,93 @@
+{
+    "name": "reach-support-admin-ui",
+    "version": "1.6.0",
+    "description": "REACH Support Admin UI",
+    "engines": {
+        "node": "14.17.0"
+    },
+    "main": "index.js",
+    "scripts": {
+        "start": "NODE_ENV=production node --max-http-header-size=65536 $NODE_DEBUG_OPTION index.js",
+        "dev": "NODE_ENV=dev npm run prepareDev && NODE_ENV=dev node --max-http-header-size=65536 $NODE_DEBUG_OPTION index.js",
+        "prepareDev": "gulp",
+        "test": "NODE_ENV=test npm run prepareDev && NODE_ENV=test REDIS_SERVER_NAME=redis-name REDIS_SERVER_KEY=redis-key mocha",
+        "test-cover": "NODE_ENV=test REDIS_SERVER_NAME=redis-name REDIS_SERVER_KEY=redis-key JUNIT_REPORT_PATH=./report.xml nyc --reporter=lcovonly --reporter=cobertura mocha --reporter mocha-jenkins-reporter",
+        "lint": "eslint index.js src test",
+        "local": "NODE_ENV=dev node $NODE_DEBUG_OPTION index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@giteux.azure.defra.cloud:chemicals/reach-support-admin-ui.git"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint"
+        }
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@hapi/bell": "12.0.0",
+        "@hapi/boom": "9.1.1",
+        "@hapi/catbox-memory": "5.0.0",
+        "@hapi/catbox-redis": "6.0.2",
+        "@hapi/cookie": "11.0.1",
+        "@hapi/crumb": "8.0.1",
+        "@hapi/hapi": "20.0.2",
+        "@hapi/inert": "6.0.3",
+        "@hapi/vision": "6.0.1",
+        "@hapi/yar": "10.1.1",
+        "applicationinsights": "1.8.8",
+        "axios": "0.21.1",
+        "axios-retry": "3.1.9",
+        "bluebird": "3.7.2",
+        "form-data": "2.3.3",
+        "govuk-frontend": "3.9.1",
+        "guid-in-words": "1.0.2",
+        "handlebars": "4.7.7",
+        "html5shiv": "3.7.3",
+        "http-status": "1.5.0",
+        "joi": "17.3.0",
+        "jsonwebtoken": "8.5.1",
+        "lodash": "4.17.21",
+        "moment": "2.29.1",
+        "moment-timezone": "0.5.33",
+        "pjson": "1.0.9",
+        "redis": "3.1.2",
+        "uuid": "3.2.1",
+        "winston": "3.3.3",
+        "winston-azure-application-insights": "2.0.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "8.2.3",
+        "chai": "4.2.0",
+        "chai-as-promised": "7.1.1",
+        "del": "6.0.0",
+        "eslint": "6.8.0",
+        "eslint-config-airbnb": "16.1.0",
+        "eslint-plugin-chai-friendly": "0.4.1",
+        "eslint-plugin-import": "2.11.0",
+        "eslint-plugin-jsx-a11y": "6.0.3",
+        "eslint-plugin-react": "7.7.0",
+        "gulp": "4.0.2",
+        "gulp-clean-css": "4.3.0",
+        "gulp-if": "3.0.0",
+        "gulp-sass": "4.1.0",
+        "gulp-sourcemaps": "3.0.0",
+        "husky": "4.3.6",
+        "jsdom": "16.4.0",
+        "mocha": "7.1.1",
+        "mocha-jenkins-reporter": "0.4.3",
+        "nock": "13.0.5",
+        "nyc": "15.1.0",
+        "retire": "2.2.3",
+        "sinon": "6.1.5",
+        "stream-to-promise": "2.2.0"
+    },
+    "standard": {
+        "ignore": [
+            "node_modules/",
+            "public/"
+        ]
+    }
+}

@@ -1,0 +1,75 @@
+<span class="govuk-caption-xl">{{labels.caption}}</span>
+<h1 class="govuk-heading-xl">{{labels.heading}}</h1>
+
+{{#isErrors errors}}
+<div class="govuk-error-summary" role="alert" aria-labelledby="error-summary-heading">
+    <h2 class="govuk-heading-m govuk-error-summary__title" id="error-summary-heading">
+        {{labels.errorBanner}}
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            {{#errors}}
+            <li><a href="#{{field}}" class="govuk-link">{{description}}</a></li>
+            {{/errors}}
+        </ul>
+    </div>
+</div>
+{{/isErrors}}
+
+<form method="POST" action="/banner/create">
+    <div class="govuk-form-group{{#isError errors 'startDate'}} govuk-form-group--error{{/isError}}">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">{{labels.startDate}}</h1>
+            </legend>
+            <span class="govuk-hint" id="date-hint">{{labels.startDateExample}}</span>
+            <div class="govuk-form-group{{#ifErrorsArrayContains errors 'day-entry' 'month-entry' 'year-entry' 'date-input'}} govuk-form-group--error{{/ifErrorsArrayContains}}">
+                <div class="govuk-form-group" id="date-input">
+                    {{#ifErrorsArrayContains errors 'day-entry' 'month-entry' 'year-entry' 'date-input'}}
+                    <span id="error-message" class="govuk-error-message">
+                    {{#getErrorDetailedDescription ../errors this.field}}{{/getErrorDetailedDescription}}
+                     </span>
+                    {{/ifErrorsArrayContains}}
+                    <div class="govuk-date-input" id="generate-token-form-date">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="day-entry">{{labels.day}}</label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#isError errors 'day-entry'}} govuk-input--error{{/isError}}" id="day-entry" name="day" type="text" pattern="[0-9]{1,2}" value="{{day}}" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="month-entry">{{labels.month}}</label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#isError errors 'month-entry'}} govuk-input--error{{/isError}}" id="month-entry" name="month" type="text" pattern="[0-9]{1,2}" value="{{month}}" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="year-entry">{{labels.year}}</label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4{{#isError errors 'year-entry'}} govuk-input--error{{/isError}}" id="year-entry" name="year" type="text" pattern="[0-9]{4}" value="{{year}}" inputmode="numeric">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="govuk-form-group{{#isError errors 'banner-content'}} govuk-form-group--error{{/isError}}">
+        <h3 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="banner-content">{{labels.content}}</label>
+        </h3>
+        <div id="more-detail-hint" class="govuk-hint">{{labels.hint}}</div>
+        {{#isError errors 'banner-content'}}
+        <span class="govuk-error-message" id="detailed-error-message-submission-select">
+          {{#getErrorDetailedDescription ../errors 'banner-content'}}{{/getErrorDetailedDescription}}
+        </span>
+        {{/isError}}
+        <textarea class="govuk-textarea" id="banner-content" name="bannerContent" rows="20" aria-describedby="more-detail-hint">{{bannerContent}}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+        {{{csrf crumb}}}
+        <button class="govuk-button" data-module="govuk-button">{{labels.confirm}}</button>
+    </div>
+</form>
