@@ -1,6 +1,6 @@
 {
     "name": "reach-support-admin-ui",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "REACH Support Admin UI",
     "engines": {
         "node": "14.17.0"
@@ -38,7 +38,7 @@
         "@hapi/vision": "6.0.1",
         "@hapi/yar": "10.1.1",
         "applicationinsights": "1.8.8",
-        "axios": "0.21.1",
+        "axios": "0.21.2",
         "axios-retry": "3.1.9",
         "bluebird": "3.7.2",
         "form-data": "2.3.3",
@@ -55,7 +55,7 @@
         "pjson": "1.0.9",
         "redis": "3.1.2",
         "uuid": "3.2.1",
-        "winston": "3.3.3",
+        "winston": "3.6.0",
         "winston-azure-application-insights": "2.0.0"
     },
     "devDependencies": {
@@ -82,6 +82,7 @@
         "nyc": "15.1.0",
         "retire": "2.2.3",
         "sinon": "6.1.5",
+        "sinon-chai": "3.7.0",
         "stream-to-promise": "2.2.0"
     },
     "standard": {

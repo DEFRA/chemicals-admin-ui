@@ -236,25 +236,32 @@ const basicValidation = (
   page,
   getErr = getError,
 ) => {
-  if (_.isEmpty(day) || _.isEmpty(month) || _.isEmpty(year)) {
-    return [
-      getErr(formMarkupId, MISSING_DATE, page),
-    ];
+  const errors = [];
+  if (_.isEmpty(day)) {
+    errors.push(getErr(dayMarkupId, MISSING_DATE, page));
   }
-
+  if (_.isEmpty(month)) {
+    errors.push(getErr(monthMarkupId, MISSING_DATE, page));
+  }
+  if (_.isEmpty(year)) {
+    errors.push(getErr(yearMarkupId, MISSING_DATE, page));
+  }
+  if (errors.length) {
+    return errors;
+  }
   if (!yearIsValidLength(year) || !stringIsDigit(year)) {
     const error = getErr(yearMarkupId, INVALID_DATE, page);
-    return [error];
+    errors.push(error);
   }
-  if (!monthIsValidLength(month) || !stringIsDigit(month)) {
+  if (!monthIsValidLength(month) || !stringIsDigit(month) || month > 12 || month < 1) {
     const error = getErr(monthMarkupId, INVALID_DATE, page);
-    return [error];
+    errors.push(error);
   }
-  if (!dayIsValidLength(day) || !stringIsDigit(day)) {
+  if (!dayIsValidLength(day) || !stringIsDigit(day) || day > 31 || day < 1) {
     const error = getErr(dayMarkupId, INVALID_DATE, page);
-    return [error];
+    errors.push(error);
   }
-  return [];
+  return errors;
 };
 
 module.exports = {

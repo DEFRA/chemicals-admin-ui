@@ -17,7 +17,7 @@
               <label class="govuk-label govuk-date-input__label" for="day-entry">
                 {{labels.day}}
               </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#isError errors 'day-entry'}} govuk-input--error{{/isError}}"
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#ifErrorsArrayContains errors 'day-entry' 'date-input'}} govuk-input--error{{/ifErrorsArrayContains}}"
                      id="day-entry" name="day" type="text" pattern="[0-9]{1,2}" value="{{day}}" inputmode="numeric">
             </div>
           </div>
@@ -26,7 +26,7 @@
               <label class="govuk-label govuk-date-input__label" for="month-entry">
                 {{labels.month}}
               </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#isError errors 'month-entry'}} govuk-input--error{{/isError}}"
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2{{#ifErrorsArrayContains errors 'month-entry' 'date-input'}} govuk-input--error{{/ifErrorsArrayContains}}"
                      id="month-entry" name="month" type="text" pattern="[0-9]{1,2}"
                      value="{{month}}" inputmode="numeric">
             </div>
@@ -36,7 +36,7 @@
               <label class="govuk-label govuk-date-input__label" for="year-entry">
                 {{labels.year}}
               </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-4{{#isError errors 'year-entry'}} govuk-input--error{{/isError}}"
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4{{#ifErrorsArrayContains errors 'year-entry' 'date-input'}} govuk-input--error{{/ifErrorsArrayContains}}"
                      id="year-entry" name="year" type="text" pattern="[0-9]{4}" value="{{year}}" inputmode="numeric">
             </div>
           </div>

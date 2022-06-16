@@ -40,7 +40,7 @@ const getFeatureToggle = async (request, featureToggleId) => {
 
 const updateFeatureToggle = async (request, featureToggleId, featureToggle) => {
   await httpClient.PUT(request, {
-    url: `${config.REACH_API}/feature-toggle/${featureToggleId}/`,
+    url: `${config.REACH_API}/feature-toggle/${featureToggleId}`,
     data: featureToggle,
   });
 };

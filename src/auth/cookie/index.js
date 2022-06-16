@@ -26,7 +26,7 @@ const cookieAuthConfig = redirectTo => ({
 
     const equalSIDs = sessionService.getSessionId(request) === session.sessionId;
     const out = {
-      valid: !!userDetails && claims && equalSIDs,
+      valid: !!userDetails && !!claims && equalSIDs,
     };
 
     if (out.valid) {

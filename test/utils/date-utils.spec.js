@@ -111,7 +111,7 @@ describe('date-utils test suite', () => {
     const today = moment.utc();
     const errors = dateUtils.basicValidation(
       { today }, '',
-      today.month().toString(), '',
+      '1', '',
       today.year().toString(), '',
       '',
       'featureToggles',
@@ -173,11 +173,10 @@ describe('date-utils test suite', () => {
   });
 
   it('should not return error for basic validation', () => {
-    const today = moment.utc();
     const errors = dateUtils.basicValidation(
-      today.date().toString(), '',
-      today.month().toString(), '',
-      today.year().toString(), '',
+      '1', '',
+      '1', '',
+      '2000', '',
       '',
       'featureToggles',
     );

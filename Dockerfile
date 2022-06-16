@@ -1,4 +1,4 @@
-FROM defradigital/node:latest
+FROM defradigital/node:latest-14
 
 ARG REACH_UI_TYPE
 

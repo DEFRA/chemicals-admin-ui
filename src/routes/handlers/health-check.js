@@ -13,26 +13,11 @@ const UNHEALTHY = 'UNHEALTHY';
  * @returns {{reports: *, health: *}}
  */
 async function getHealthcheckReports(dependencies) {
-  const reports = [];
-  let aggregatedHealth = HEALTHY;
-
-  if (dependencies) {
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < dependencies.length; i++) {
-      // eslint-disable-next-line no-await-in-loop
-      const dependencyReport = await dependencies[i].getHealthReport();
-
-      // eslint-disable-next-line no-plusplus
-      for (let j = 0; j < dependencyReport.length; j++) {
-        reports.push(dependencyReport[j]);
-        if (dependencyReport[j].status === UNHEALTHY) {
-          aggregatedHealth = dependencyReport[j].status;
-        }
-      }
-    }
-  }
-
-  return { health: aggregatedHealth, reports };
+  const reports = (await Promise.all((dependencies || []).map(dep => dep.getHealthReport()))).flat();
+  return {
+    reports,
+    health: reports.some(report => report.status === UNHEALTHY) ? UNHEALTHY : HEALTHY,
+  };
 }
 
 const handlers = () => {
